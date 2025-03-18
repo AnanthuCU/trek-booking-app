@@ -1,0 +1,11 @@
+.container {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+  }
+  
+  .trekItem {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+  
