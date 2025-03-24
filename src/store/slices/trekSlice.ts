@@ -1,36 +1,52 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { Trek } from "@/types/trekTypes";
+// export interface Trek {
+//   id: number;
+//   name: string;
+//   description: string;
+//   price: number;
+//   isFeatured: boolean;
+// }
 
-interface Trek {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  level:string;
+interface TreksState {
+  list: Trek[]; // ✅ Ensure the key is "treks", not "trekList"
 }
 
-interface TrekState {
-  treks: Trek[];
-}
-
-const initialState: TrekState = {
-  treks: [
-    { id: "1", name: "Everest Base Camp", description: "A challenging trek to EBC.", price: 1200,level:"hard" },
-    { id: "2", name: "Annapurna Circuit", description: "Beautiful trek in Nepal.", price: 900 ,level:"very hard"},
+const initialState: TreksState = {
+  list: [
+    {
+      id: 1,
+      name: "Everest Base Camp",
+      description: "A challenging trek to Everest Base Camp.",
+      price: 1200,
+      isFeatured: true,
+    },
+    {
+      id: 2,
+      name: "Annapurna Circuit",
+      description: "A scenic trek around the Annapurna mountain range.",
+      price: 900,
+      isFeatured: false,
+    },
+    {
+      id: 3,
+      name: "Kilimanjaro Trek",
+      description: "Climb to the top of Africa’s highest peak.",
+      price: 1500,
+      isFeatured: true,
+    },
   ],
 };
 
-const trekSlice = createSlice({
-  name: "trek",
+const treksSlice = createSlice({
+  name: "treks",
   initialState,
   reducers: {
-    setTreks: (state, action: PayloadAction<Trek[]>) => {
-      state.treks = action.payload;
-    },
     addTrek: (state, action: PayloadAction<Trek>) => {
-      state.treks.push(action.payload);
+      state.list.push(action.payload);
     },
   },
 });
 
-export const { setTreks, addTrek } = trekSlice.actions;
-export default trekSlice.reducer;
+export const { addTrek } = treksSlice.actions;
+export default treksSlice.reducer;

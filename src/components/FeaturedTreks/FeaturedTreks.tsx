@@ -4,21 +4,22 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/store";
 // import { Trek } from "@/store/slices/trekSlice";
 import { Trek } from "@/types/trekTypes";
-import styles from "./TrekList.module.css";
+import styles from "./FeaturedTreks.module.css";
 
-const TrekList = () => {
-  const treks = useSelector((state: RootState) => state.treks.list);
+const FeaturedTreks = () => {
+  const featuredTreks = useSelector((state: RootState) =>
+    state.treks.list.filter((trek: Trek) => trek.isFeatured)
+  );
 
   return (
-    <div className={styles.trekList}>
-      <h2>All Treks</h2>
+    <div className={styles.featuredTreks}>
+      <h2>Featured Treks</h2>
       <div className={styles.trekContainer}>
-        {treks.map((trek: Trek) => (
+        {featuredTreks.map((trek: Trek) => (
           <div key={trek.id} className={styles.trekCard}>
             <h3>{trek.name}</h3>
             <p>{trek.description}</p>
             <p className={styles.price}>Price: ${trek.price}</p>
-            <p>Route Analysis</p>
           </div>
         ))}
       </div>
@@ -26,4 +27,4 @@ const TrekList = () => {
   );
 };
 
-export default TrekList;
+export default FeaturedTreks;

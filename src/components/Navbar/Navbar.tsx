@@ -12,7 +12,7 @@ const Navbar = () => {
         <li>
           <Link className={styles.navlink} href="/treks">Treks</Link> {/* ✅ Navigates to Treks page */}
         </li>
-        <li>
+        <li>  
           <Link className={styles.navlink} href="/contact">Contact</Link> {/* ✅ Navigates to Contact page */}
         </li>
       </ul>
