@@ -1,0 +1,78 @@
+.page-container {
+  width: 100%;
+  overflow: hidden;
+  padding: 40px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 40px;
+  flex-direction: column;
+  background-color: #fff;
+}
+
+.svgContainer {
+  background-color: #fff;
+  /* padding: 12px; */
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  top: 20px;
+  left: 20px;
+
+  cursor: pointer;
+}
+
+.svgContainer > svg {
+  width: 26px;
+  height: 26px;
+}
+
+.mapContainer {
+  width: 100%;
+  display: flex;
+  gap: 8px;
+}
+
+.sidePanelContainer {
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  flex-direction: column;
+
+  transition: width 1s ease;
+
+  width: 25%;
+}
+
+@media screen and (max-width: 480px) {
+  .page-container {
+    padding: 40px 16px;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .page-container {
+    padding: 40px 32px;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .page-container {
+    padding: 40px 32px;
+    /* width: calc(100% - 77px);
+      overflow: hidden; */
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  /* .page-container {
+      width: calc(100% - 77px);
+      overflow: hidden;
+    } */
+}

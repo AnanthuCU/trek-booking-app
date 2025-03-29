@@ -1,0 +1,120 @@
+.chartContainer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 15rem;
+}
+.donutContainer {
+  width: 50%;
+}
+.dataTableContainer {
+  background-color: #fff;
+  box-shadow: 0px 4.374px 17.496px 0px rgba(50, 50, 71, 0.06),
+    0px 4.374px 8.748px 0px rgba(0, 100, 168, 0.08);
+  border-radius: 0.61738rem;
+  padding: 0.82013rem;
+  width: 21rem;
+}
+.dataTable {
+  /* display: flex; */
+
+  /* flex-direction: column; */
+  /* align-items: flex-start; */
+  /* gap: 0.82013rem; */
+  /* border: 1px solid red; */
+  border: none;
+  border-collapse: collapse;
+  /* background: #fff;
+    box-shadow: 0px 4.374px 17.496px 0px rgba(50, 50, 71, 0.06),
+      0px 4.374px 8.748px 0px rgba(0, 100, 168, 0.08); */
+
+  font-family: var(--font-inter);
+  font-size: 10px;
+}
+/* .rowAlignment{
+  width: 100%;
+} */
+/* .dataTable th,
+  .dataTable td {
+    
+  
+    text-align: center;
+  } */
+
+.dataTable thead th {
+  /* display: flex; */
+  /* padding: 0.54675rem 0.27338rem; */
+  padding: 8px 4px;
+  /* justify-content: space-between; */
+  /* align-items: center;
+    align-self: stretch; */
+  /* border-radius: 0.30869rem; */
+  background: #f6f7f9;
+  text-align: start;
+  color: #5d5d5d;
+
+  font-weight: 600;
+  line-height: 0.68344rem; /* 125% */
+}
+
+.dataTable th:first-child {
+  border-top-left-radius: 0.30869rem;
+  border-bottom-left-radius: 0.30869rem;
+  width: 100%;
+}
+
+.dataTable th:last-child {
+  border-top-right-radius: 0.30869rem;
+  border-bottom-right-radius: 0.30869rem;
+}
+
+.dataTable td {
+  /* text-align: right;  / */
+
+  padding: 8px 4px;
+
+  color: #5d5d5d;
+
+  font-weight: 500;
+  line-height: 0.69456rem; /* 127.033% */
+}
+
+@media screen and (min-width: 1401px) and (max-width: 1600px) {
+  .chartContainer{
+    gap: 9rem;
+  }
+}
+@media screen and (min-width: 1201px) and (max-width: 1400px) {
+  .chartContainer {
+    gap: 5rem;
+  }
+
+}
+@media (max-width: 1024px) {
+  .dataTableContainer {
+    display: none; /* Hide the table container */
+  }
+  .donutContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.tdFlex {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+}
+
+.radialLabels {
+  fill: var(--Black-500, #f0f0f0);
+  /* fill: var(--Black-500, #fff); */
+  font-family: var(--font-inter);
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 8.962px; /* 133.333% */
+}

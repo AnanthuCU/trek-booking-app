@@ -1,0 +1,83 @@
+.SearchContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.SearchWrapper {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.inputWrapper {
+    position: relative;
+}
+
+.inputWrapper input[type="number"]::-webkit-outer-spin-button,
+.inputWrapper input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.inputWrapper input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.inputWrapper div {
+    width: fit-content;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
+.SearchContainer p {
+    color: var(--Black-500, #6D6D6D);
+    font-family: Inter;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1rem;
+    letter-spacing: 0.015rem;
+}
+
+.SearchWrapper input {
+    display: flex;
+    height: 2.375rem;
+    padding: 0rem var(--Spacing-gap-8, 0.5rem);
+    align-items: center;
+    gap: 0.625rem;
+    align-self: stretch;
+    border-radius: var(--Curve-curve-1, 0.25rem);
+    border: 1px solid var(--Black-300, #B0B0B0);
+    width: 12rem;
+}
+
+.SearchWrapper input:focus {
+    outline: 2px solid #0A9CED;
+    /* Blue outline when input is focused */
+}
+
+.SearchWrapper button {
+    display: flex;
+    width: 6.9375rem;
+    height: 2.375rem;
+    padding: 0rem var(--Spacing-card-tB-lR, 1rem);
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    color: white;
+    border: none;
+    border-radius: var(--Curve-curve-md, 0.5rem);
+    background: var(--Primary-Blue-500, #0A9CED);
+
+    color: var(--Black-0, #FFF);
+    text-align: center;
+
+    font-family: Inter;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.125rem;
+}

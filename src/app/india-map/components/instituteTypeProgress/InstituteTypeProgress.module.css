@@ -1,0 +1,81 @@
+.container {
+  max-height: 180px;
+  overflow-y: auto;
+  width: 100%;
+
+  color: var(--Black-600, #5d5d5d);
+
+  /* Body/12px-regular */
+  font-family: var(--font-inter);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px; /* 133.333% */
+}
+
+.container::-webkit-scrollbar {
+  display: none;
+}
+
+.container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* .container::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.container::-webkit-scrollbar {
+  width: 6px;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.container::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: lightgray;
+} */
+
+.progressContainer {
+  width: 100%;
+  display: flex;
+  padding: 14px var(--Spacing-gap-3, 12px);
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 4px;
+  align-self: stretch;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.progress {
+  background: var(--Black-50, #f6f6f6);
+  height: 4px;
+  align-self: stretch;
+  width: 100%;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.progress > span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 100%;
+}
+
+.bar {
+  height: 4px;
+  width: 80%;
+  opacity: 0.6;
+}

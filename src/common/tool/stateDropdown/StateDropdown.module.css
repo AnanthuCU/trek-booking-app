@@ -1,0 +1,194 @@
+.--pl-state-relative-container {
+  position: relative;
+}
+
+.--pl-state-dropdown-container {
+  border-radius: 2rem;
+  border: 1px solid var(--Black-300, #b0b0b0);
+  display: flex;
+  height: 2.375rem;
+  padding: 0rem var(--Spacing-gap-8, 0.5rem) 0rem 0.75rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+  cursor: pointer;
+  transition: border 100ms ease;
+}
+
+.--pl-state-dropdown-container:hover {
+  border-color: #0a9ced;
+}
+
+.--pl-state-dropdown-container > .--title {
+  color: var(--Black-500, #6d6d6d);
+  text-align: center;
+  font-family: var(--font-inter);
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 0rem;
+  letter-spacing: 0.0225rem;
+}
+
+.--pl-dropdown-container {
+  position: absolute;
+  top: 44px;
+  right: 0px;
+
+  display: flex;
+  max-width: 18.75rem;
+  max-height: 16.125rem;
+  padding: 1rem var(--Spacing-gap-0, 0rem);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--Spacing-gap-0, 0rem);
+
+  border-radius: var(--Curve-curve-sm, 0.25rem);
+  background: var(--Black-0, #fff);
+
+  box-shadow: 0px 4px 8px 0px rgba(0, 100, 168, 0.08),
+    0px 4px 16px 0px rgba(50, 50, 71, 0.06);
+}
+
+.--pl-filter-dd-dropdown-container {
+  display: flex;
+  max-width: 18.75rem;
+  max-height: 16.125rem;
+  padding: 1rem var(--Spacing-gap-0, 0rem);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--Spacing-gap-0, 0rem);
+  border-radius: var(--Curve-curve-sm, 0.25rem);
+  background: var(--Black-0, #fff);
+
+  box-shadow: 0px 4px 8px 0px rgba(0, 100, 168, 0.08),
+    0px 4px 16px 0px rgba(50, 50, 71, 0.06);
+
+  overflow-y: scroll;
+
+  position: absolute;
+  top: 44px;
+  right: 0px;
+  z-index: 2;
+}
+
+.--pl-filter-dd-dropdown-container > .--filter-item {
+  display: flex;
+  height: 2.5rem;
+  padding: 0rem 0.5rem;
+  align-items: center;
+  gap: 0.25rem;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 100ms ease;
+}
+
+.--pl-filter-dd-dropdown-container > .--filter-item:hover {
+  background-color: #f0f8ff;
+}
+
+.--pl-list-item {
+  color: var(--Black-900, #3d3d3d);
+  font-family: var(--font-inter);
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1rem;
+  letter-spacing: 0.015rem;
+}
+
+.--pl-filter-dd-dropdown-container::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.--pl-filter-dd-dropdown-container::-webkit-scrollbar {
+  width: 6px;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.--pl-filter-dd-dropdown-container::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: lightgray;
+}
+
+.select-icon > svg {
+  fill: black;
+}
+
+.--inactive > svg {
+  visibility: hidden;
+}
+
+.--placeholder-active {
+  color: black;
+  font-size: 12px;
+}
+
+.--placeholder-number {
+  color: var(--primary-blue);
+}
+
+.--pl-filter-dd-dropdown-container {
+  transform: translateY(-20px);
+  opacity: 0;
+  animation: dropdown 100ms linear forwards;
+}
+
+.--pl-filter-dd-search {
+  display: flex;
+  padding: var(--Spacing-gap-0, 0rem) 1rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.625rem;
+  align-self: stretch;
+  margin-bottom: 8px;
+}
+
+.--pl-filter-dd-search > input {
+  display: flex;
+  padding: 0.625rem 0.875rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  align-self: stretch;
+  border-radius: 2.375rem;
+  border: 1px solid var(--Color-Neutral-cn-medium-80, #c6c6c9);
+
+  font-family: var(--font-inter);
+  font-size: 12px;
+}
+
+.--pl-filter-dd-search > input:focus {
+  outline: none;
+  border: none;
+  border: 1px solid var(--Color-Neutral-cn-medium-80, #c6c6c9);
+}
+
+.--pl-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.--pl-icon > svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: #b0b0b0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes dropdown {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

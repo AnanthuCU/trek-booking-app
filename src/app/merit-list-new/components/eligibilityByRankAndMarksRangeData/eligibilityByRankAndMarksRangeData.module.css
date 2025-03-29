@@ -1,0 +1,133 @@
+.chartMainContainer {
+    width: 100%;
+    overflow-X: scroll;
+    position: relative;
+}
+
+
+  .scrollableChart {
+    width: 100%; /* Ensures the container takes up 100% of available width */
+    overflow-x: scroll; /* Enables horizontal scrolling on smaller screens */
+  }
+  .scrollableChart::-webkit-scrollbar {
+    display: none; /* Hides the scrollbar for Webkit browsers (Chrome, Safari) */
+  }
+.chartRef {
+    min-width: 1200px;
+    width: 100%; /* SVG takes up the full width of the container */
+    height: 600px; /* Fixed height */
+  }
+
+.chartBannerWrapper {
+    position: absolute;
+    right: 0.625rem;
+    top: 3.375rem;
+    width: 17rem;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    padding: .5rem;
+    gap: .25rem;
+    z-index: 0;
+}
+
+.chartBannerWrapper p {
+    color: var(--Black-800, #454545);
+    font-family: Inter;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.3125rem;
+}
+
+.chartBannerWrapper small {
+    color: var(--Black-500, #6D6D6D);
+    font-family: Inter;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.125rem;
+}
+.chartBannerTop{
+    display: flex;
+    gap: .5rem;
+}
+
+
+/* tooltip styling  */
+
+.toolTipMainContainer {
+  display: flex;
+  padding: 0.5rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2765rem;
+  width: 100%;
+  border-radius: 6px;
+}
+
+.marksContainer {
+  color: var(--Black-800, #454545);
+  font-family: Inter;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1rem;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 0.2765rem;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  justify-content: center;
+}
+
+.incrementContainer {
+
+  font-family: Inter;
+  font-size: 0.625rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 0.8125rem;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 0.2765rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  justify-content: center;
+}
+
+.positive {
+  color: #16C784;
+}
+
+.negative {
+  color: #EB5E7E
+}
+
+.labelContainer {
+  color: var(--Black-800, #454545);
+  font-family: Inter;
+  font-size: 0.625rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 0.8125rem;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 0.2765rem;
+}
+
+.yearContainer {
+  color: var(--Black-800, #454545);
+  font-family: Inter;
+  font-size: 0.625rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 0.8125rem;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 0.2765rem;
+}

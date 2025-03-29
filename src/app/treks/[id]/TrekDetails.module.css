@@ -1,0 +1,11 @@
+.trekDetails {
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+  }
+  
+  .notFound {
+    color: red;
+    text-align: center;
+  }
+  

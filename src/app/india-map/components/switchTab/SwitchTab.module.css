@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  padding: 4px;
+  width: 100%;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--Black-800, #454545);
+  text-align: center;
+
+  /* Body/10px-semibold */
+  font-family: var(--font-inter);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 13px; /* 130% */
+
+  border-radius: 8px;
+  background: var(--Black-50, #f6f6f6);
+}
+
+.tab {
+  display: flex;
+  height: 28px;
+  padding: 0px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  flex: 1 0 0;
+
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.tabActive {
+  background: var(--Primary-Blue-100, #dff0ff);
+}

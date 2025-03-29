@@ -1,0 +1,28 @@
+.--cf-slider-container {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  z-index: 99;
+}
+
+.--cf-range-slider-input {
+  font-family: var(--font-inter);
+  border: 1px solid rgb(174, 174, 174);
+  border-radius: 10px;
+  padding: 4px 12px;
+  font-size: 12px;
+  width: fit-content;
+  height: fit-content;
+  min-width: 68px;
+  text-align: center;
+}
+
+.chip-slider {
+  position: relative;
+}
+
+.bar-chart-container {
+  position: absolute;
+  top: -37px;
+  right: 66px;
+}

@@ -1,0 +1,29 @@
+.labels {
+  text-anchor: middle;
+  font-family: var(--font-inter);
+  font-weight: 600;
+  text-align: center;
+  font-size: 10px;
+  fill: "#595959";
+  cursor: default;
+
+  /* fill: #5d5d5d; */
+}
+
+.svg path:focus,
+.svg path:active {
+  outline: none;
+  border: none;
+}
+
+.svg text:focus,
+.svg text:active {
+  outline: none;
+  border: none;
+}
+
+.svg circle:focus,
+.svg circle:active {
+  outline: none;
+  border: none;
+}

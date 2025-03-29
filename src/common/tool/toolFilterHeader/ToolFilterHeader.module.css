@@ -1,0 +1,71 @@
+.--pl-filter-header-container {
+  display: flex;
+  padding: var(--Spacing-gap-0, 0rem) var(--Spacing-card-tB-lR, 1rem);
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: var(--Spacing-card-tB-lR, 1rem);
+  align-self: stretch;
+}
+
+.--pl-filter-pill {
+  width: 0.625rem;
+  height: 2.3125rem;
+  border-radius: var(--Curve-curve-sm, 0.25rem);
+  background: rgba(7, 44, 74, 0.24);
+}
+
+.--pl-filter-header {
+  display: flex;
+  padding: var(--Spacing-gap-0, 0rem);
+  flex-direction: column;
+ 
+  align-items: flex-start;
+  gap: 0.25rem;
+  flex: 1 0 0;
+}
+
+.--pl-filter-header > .--title {
+  color: var(--Black-900, #3d3d3d);
+  font-family: var(--font-montserrat);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.375rem;
+}
+
+.--pl-filter-header > .--subtitle {
+  color: var(--Black-900, #3d3d3d);
+  font-family: var(--font-inter);
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.125rem;
+  text-overflow: ellipsis;
+}
+
+.--pl-filter-state {
+  margin-left: auto;
+}
+
+
+@media screen and (max-width: 480px) {
+  .--pl-filter-header > .--title {
+    font-size: 18px;
+  }
+}
+
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+}
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+}
+
+
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+}
+@media screen and (min-width: 1201px) and (max-width: 1600px) {
+}
+
+
+@media screen and (min-width: 1601px) {
+}

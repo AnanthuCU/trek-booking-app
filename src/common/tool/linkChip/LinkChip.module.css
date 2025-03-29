@@ -1,0 +1,43 @@
+.--view-more-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  text-decoration: none;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.125rem;
+  border-radius: var(--Curve-curve-lg, 1rem);
+  padding: 0.125rem 0.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 7.6875rem;
+}
+
+.--pl-view-more-enabled {
+  color: var(--Primary-Blue-500, #0a9ced);
+  background: var(--Primary-Blue-100, #dff0ff);
+  fill:#0A9CED
+}
+
+.--pl-view-more-disabled {
+  color: rgba(0, 0, 0, 0.26);
+  background-color: rgba(0, 0, 0, 0.12);
+  pointer-events: none;
+  fill:rgba(0, 0, 0, 0.26)
+}
+
+.--pl-view-more-icon {
+  width: 0.875rem;
+  height: 0.875rem;
+  fill: inherit;
+}
+
+.--pl-view-more-icon > svg {
+    width: 0.875rem;
+    height: 0.875rem;
+    fill: inherit;
+}

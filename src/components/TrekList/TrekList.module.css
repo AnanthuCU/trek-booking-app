@@ -45,3 +45,11 @@
   color: #27ae60;
   margin-top: 10px;
 }
+
+.routeLink {
+  display: inline-block;
+  margin-top: 10px;
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}

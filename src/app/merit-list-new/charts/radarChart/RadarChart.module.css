@@ -1,0 +1,16 @@
+.axisLine {
+  stroke: #e7e7e7;
+}
+
+.axisText {
+  fill: var(--Black-400, #888);
+  font-family: var(--font-inter);
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 13px;
+}
+
+.axisCircle {
+  stroke: #e7e7e7;
+}

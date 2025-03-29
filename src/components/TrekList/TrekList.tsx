@@ -2,8 +2,8 @@
 
 import { useSelector } from "react-redux";
 import { RootState } from "@/store";
-// import { Trek } from "@/store/slices/trekSlice";
 import { Trek } from "@/types/trekTypes";
+import Link from "next/link"; // ✅ Import Link
 import styles from "./TrekList.module.css";
 
 const TrekList = () => {
@@ -18,7 +18,11 @@ const TrekList = () => {
             <h3>{trek.name}</h3>
             <p>{trek.description}</p>
             <p className={styles.price}>Price: ${trek.price}</p>
-            <p>Route Analysis</p>
+            
+            {/* ✅ Route Analysis Link */}
+            <Link href={`/treks/${trek.id}`} className={styles.routeLink}>
+              Route Analysis
+            </Link>
           </div>
         ))}
       </div>

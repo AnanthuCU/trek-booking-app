@@ -1,0 +1,144 @@
+.chartMainContainer {
+  /* border: 1px solid blue; */
+  height: 29rem;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  overflow: hidden;
+  gap: 2rem;
+
+}
+
+.tableWrapper {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.chartWrapper {
+  rotate: 270deg;
+  width: 100%;
+}
+
+.chartRef {
+  padding: 1rem;
+  /* border: 1px solid pink; */
+}
+
+/* tooltip styling  */
+
+.toolTipMainContainer {
+  display: flex;
+  padding: 0.5rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2765rem;
+  width: 100%;
+  border-radius: 6px;
+}
+
+.marksContainer {
+  color: var(--Black-800, #454545);
+  font-family: Inter;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1rem;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 0.2765rem;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  justify-content: center;
+}
+
+.incrementContainer {
+
+  font-family: Inter;
+  font-size: 0.625rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 0.8125rem;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 0.2765rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  justify-content: center;
+}
+
+.positive {
+  color: #16C784;
+}
+
+.negative {
+  color: #EB5E7E
+}
+
+.labelContainer {
+  color: var(--Black-800, #454545);
+  font-family: Inter;
+  font-size: 0.625rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 0.8125rem;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 0.2765rem;
+}
+
+.yearContainer {
+  color: var(--Black-800, #454545);
+  font-family: Inter;
+  font-size: 0.625rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 0.8125rem;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 0.2765rem;
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1600px) {
+   .chartMainContainer {
+    height: 20rem;
+  }
+}
+
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /* .chartMainContainer {
+    height: 28rem;
+  } */
+
+  .tableWrapper {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .chartMainContainer {
+    height: 22rem;
+  }
+
+  .tableWrapper {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .chartMainContainer {
+    height: 14rem;
+  }
+
+  .tableWrapper {
+    display: none;
+  }
+}

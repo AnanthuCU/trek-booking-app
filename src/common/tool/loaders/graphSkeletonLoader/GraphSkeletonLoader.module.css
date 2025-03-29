@@ -1,0 +1,22 @@
+.container {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  display: flex;
+  background-color: lightgray;
+  animation: pulse 1000ms ease infinite forwards;
+  border-radius: 0.25rem;
+  margin-top: 32px;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 20%;
+  }
+  50% {
+    opacity: 40%;
+  }
+  100% {
+    opacity: 20%;
+  }
+}

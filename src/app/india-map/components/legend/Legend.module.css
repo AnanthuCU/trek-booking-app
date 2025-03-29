@@ -1,0 +1,41 @@
+.legendContainer {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+  font-family: var(--font-inter);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  color: var(--Black-600, #5d5d5d);
+
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+
+  background-color: #ffffff;
+  padding: 4px;
+  border-radius: 8px;
+}
+
+.legendText {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+}
+
+.legendColors {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+}
+
+.legend {
+  width: 40px;
+  height: 6px;
+}

@@ -1,0 +1,22 @@
+.axisLabel {
+  fill: var(--Black-400, #888);
+  text-align: right;
+
+  /* Body/10px-semibold */
+  font-family: var(--font-inter);
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 13px; /* 130% */
+}
+
+.axisCircleText {
+  fill: var(--Black-600, #5d5d5d);
+
+  /* Body/10px-semibold */
+  font-family: var(--font-inter);
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 13px; /* 130% */
+}

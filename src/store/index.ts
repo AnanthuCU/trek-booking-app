@@ -1,10 +1,9 @@
+// src/store/index.ts
 import { configureStore } from "@reduxjs/toolkit";
-import treksReducer from "./slices/trekSlice"; // ✅ Import reducer
+import rootReducer from "./rootReducer"; // ✅ Import the combined reducers
 
 export const store = configureStore({
-  reducer: {
-    treks: treksReducer, // ✅ Ensure this key is "treks", NOT "trek"
-  },
+  reducer: rootReducer, // ✅ Use rootReducer
 });
 
 export type RootState = ReturnType<typeof store.getState>;

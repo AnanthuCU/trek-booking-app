@@ -1,0 +1,27 @@
+.container {
+  position: relative;
+  width: 18.75rem;
+  height: 2.375rem;
+  display: flex;
+  background-color: lightgray;
+  animation: pulse 3000ms ease infinite forwards;
+  border-radius: 0.25rem;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 20%;
+  }
+  50% {
+    opacity: 40%;
+  }
+  100% {
+    opacity: 20%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    width: 100%;
+  }
+}
