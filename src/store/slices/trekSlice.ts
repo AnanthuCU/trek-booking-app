@@ -21,10 +21,18 @@ const initialState: TreksState = {
       price: 1200,
       isFeatured: true,
       route: [
-        { id: 1, latitude: 27.9881, longitude: 86.925, elevation: 5364 },
-        { id: 2, latitude: 27.9901, longitude: 86.920, elevation: 5400 },
-        { id: 3, latitude: 27.9950, longitude: 86.910, elevation: 5500 },
-        { id: 4, latitude: 28.0000, longitude: 86.900, elevation: 5600 },
+        { id: 1, latitude: 28.0000, longitude: 86.9000, elevation: 2600 },
+        { id: 2, latitude: 28.0360, longitude: 86.9020, elevation: 2700 },
+        { id: 3, latitude: 28.0720, longitude: 86.9040, elevation: 3250 },
+        { id: 4, latitude: 28.1080, longitude: 86.9060, elevation: 2900 },
+        { id: 5, latitude: 28.1440, longitude: 86.9080, elevation: 3100 },
+        { id: 6, latitude: 28.1800, longitude: 86.9100, elevation: 3350 },
+        { id: 7, latitude: 28.2160, longitude: 86.9120, elevation: 3850 },
+        { id: 8, latitude: 28.2520, longitude: 86.9140, elevation: 3900 },
+        { id: 9, latitude: 28.2880, longitude: 86.9160, elevation: 4100 }, // Highest point
+        { id: 10, latitude: 28.3240, longitude: 86.9180, elevation: 3850 },
+        { id: 11, latitude: 28.3600, longitude: 86.9200, elevation: 3550 },
+        { id: 12, latitude: 28.3960, longitude: 86.9220, elevation: 3200 },
       ],
     },
     {

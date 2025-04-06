@@ -117,29 +117,6 @@ const IndiaMapPage = (props: Props) => {
 
   return (
     <div className={toolStyles["tool-container"]}>
-      <ToolHeader toolTitle={content.title} toolSubtitle={content.subtitle!} />
-
-      {/* Main filters */}
-      {/* <MapFilters
-        distributionFilterSelect={distributionFilterSelect}
-        setDistributionFilterSelect={setDistributionFilterSelect}
-        setIsLocked={setIsLocked}
-        selectedState={selectedState}
-        setSelectedState={setSelectedState}
-        instituteTypeFilterSelect={instituteTypeFilterSelect}
-        setInstituteTypeFilterSelect={setInstituteTypeFilterSelect}
-        instituteTypeFilterData={instituteTypes}
-        selectedYear={selectedYear}
-        setSelectedYear={setSelectedYear}
-        viewData={views}
-        viewFilterSelect={viewFilterSelect}
-        setViewFilterSelect={setViewFilterSelect}
-        counsellingType={counsellingType}
-        setCounsellingType={setCounsellingType}
-        marks={marks}
-        setMarkFilterSelect={setMarkFilterSelect}
-        markFilterSelect={markFilterSelect}
-      /> */}
 
       {/* Map container with legends and home button */}
       <div
@@ -153,21 +130,7 @@ const IndiaMapPage = (props: Props) => {
         >
           <HomeSvg />
         </div>
-
-        {/* Legends */}
-        <AnimatePresence>{!selectedState.length && <Legend />}</AnimatePresence>
-
         <div className={styles.mapContainer}>
-          {/* Compare Toggle */}
-          <AnimatePresence>
-            {!selectedState.length && (
-              <Compare
-                setViewFilterSelect={setViewFilterSelect}
-                year={parseInt(selectedYear[0])}
-              />
-            )}
-          </AnimatePresence>
-          {/* India Map */}
           <IndiaMap
             selectedState={selectedState[0]}
             setSelectedState={setSelectedState}
@@ -182,25 +145,6 @@ const IndiaMapPage = (props: Props) => {
               markFilterSelect[0] === "Location View" ? "location" : "radius"
             }
           />
-
-          {/* side panel */}
-          <div className={styles.sidePanelContainer}>
-            <OverViewCard
-              distributionFilterSelect={distributionFilterSelect}
-              setDistributionFilterSelect={setDistributionFilterSelect}
-              summarizedInstituteTypes={summarizedInstituteTypes.filter(
-                (item) =>
-                  instituteTypeFilterSelect.length !== 0
-                    ? instituteTypeFilterSelect.includes(item.InstituteType)
-                    : true
-              )}
-            />
-            <CollegeListCard
-              selectedCollege={selectedCollege}
-              filteredCollegeData={filteredCollegeData1}
-              counsellingType={counsellingType}
-            />
-          </div>
         </div>
       </div>
     </div>

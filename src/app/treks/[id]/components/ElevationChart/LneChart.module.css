@@ -1,0 +1,29 @@
+.chartContainer {
+    margin-top: 2rem;
+    text-align: center;
+  }
+  
+  .svg {
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    overflow: visible;
+  }
+  
+  .axis path,
+  .axis line {
+    stroke: #ccc;
+  }
+  
+  .linePath {
+    fill: none;
+    stroke: #2c7be5;
+    stroke-width: 2px;
+  }
+  
+  .circle {
+    fill: red;
+    stroke: white;
+    stroke-width: 1px;
+  }
+  

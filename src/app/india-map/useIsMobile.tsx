@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 
 function useIsMobile(targetWidth: number): boolean {
-  const [isMobile, setIsMobile] = useState(window.innerWidth < targetWidth);
+  const [isMobile, setIsMobile] = useState(false); // Start with false on server
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // Custom debounce function
@@ -15,21 +15,25 @@ function useIsMobile(targetWidth: number): boolean {
   };
 
   useEffect(() => {
-    const handleResize = debounce(() => {
-      setIsMobile(window.innerWidth < targetWidth);
-    }, 300); // Debounce delay: 300ms
+    // Only run this on the client
+    const updateIsMobile = () => {
+      if (typeof window !== "undefined") {
+        setIsMobile(window.innerWidth < targetWidth);
+      }
+    };
 
-    // Set initial state and add listener
+    const handleResize = debounce(updateIsMobile, 300);
+
+    updateIsMobile(); // Set initial value
     window.addEventListener("resize", handleResize);
 
-    // Cleanup on component unmount
     return () => {
       window.removeEventListener("resize", handleResize);
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
       }
     };
-  }, []);
+  }, [targetWidth]);
 
   return isMobile;
 }
