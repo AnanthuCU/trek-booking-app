@@ -16,8 +16,8 @@ const initialState: TreksState = {
   list: [
     {
       id: 1,
-      name: "Everest Base Camp",
-      description: "A challenging trek to Everest Base Camp.",
+      name: "Route Title",
+      description: "A challenging trek to Base Camp.",
       price: 1200,
       isFeatured: true,
       route: [

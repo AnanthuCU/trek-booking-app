@@ -1,6 +1,43 @@
-body {
-  font-family: Arial, sans-serif;
+html, body {
+  height: 100%;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
+  font-family: Arial, sans-serif;
+  background-color: #bac7d3;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.mainContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-top: 60px; /* height of the fixed navbar */
+}
+
+.navbarContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px; /* define navbar height */
+  background-color: white;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.childrenContainer {
+  flex: 1;
+  padding: 20px;
+  padding-top: 0; /* already added padding in mainContainer */
+}
+
+.footerContainer {
+  background-color: #f0f0f0;
+  padding: 20px;
+  text-align: center;
 }

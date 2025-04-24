@@ -1,26 +1,21 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { Dispatch, SetStateAction, useEffect, useRef } from "react";
 import * as d3 from "d3";
 import { RoutePoint } from "@/types/trekTypes";
 
 type Props = {
   route: RoutePoint[];
   hoveredPointId: number | null;
+  setHoveredPointId: Dispatch<SetStateAction<number | null>>;
 };
 
-const LineChart = ({ route, hoveredPointId }: Props) => {
+const LineChart = ({ route, hoveredPointId, setHoveredPointId }: Props) => {
   const svgRef = useRef<SVGSVGElement | null>(null);
-  const [tooltipData, setTooltipData] = useState<{
-    x: number;
-    y: number;
-    text: string;
-  } | null>(null);
 
   useEffect(() => {
     if (!route || route.length === 0) return;
 
-    // === Step 1: Compute cumulative distance ===
     let totalDistance = 0;
     const distanceData = route.map((point, index) => {
       if (index === 0) return { ...point, distance: 0 };
@@ -41,7 +36,6 @@ const LineChart = ({ route, hoveredPointId }: Props) => {
       return { ...point, distance: totalDistance };
     });
 
-    // === Step 2: Define chart dimensions ===
     const width = 928;
     const height = 500;
     const marginTop = 20;
@@ -49,7 +43,6 @@ const LineChart = ({ route, hoveredPointId }: Props) => {
     const marginBottom = 30;
     const marginLeft = 40;
 
-    // === Step 3: Define scales ===
     const x = d3
       .scaleLinear()
       .domain(d3.extent(distanceData, (d) => d.distance) as [number, number])
@@ -63,32 +56,23 @@ const LineChart = ({ route, hoveredPointId }: Props) => {
       ])
       .range([height - marginBottom, marginTop]);
 
-    // === Step 4: Define line generator ===
     const line = d3
       .line<any>()
       .x((d) => x(d.distance))
       .y((d) => y(d.elevation))
       .curve(d3.curveMonotoneX);
 
-    // === Step 5: Create SVG ===
     const svg = d3
       .select(svgRef.current)
       .attr("viewBox", [0, 0, width, height])
       .attr("width", width)
       .attr("height", height)
-      .attr(
-        "style",
-        "max-width: 100%; height: auto; height: intrinsic; font: 10px sans-serif;"
-      )
+      .attr("style", "max-width: 100%; height: auto; font: 10px sans-serif;")
       .style("-webkit-tap-highlight-color", "transparent")
-      .style("overflow", "visible")
-      .on("pointerenter pointermove", pointermoved)
-      .on("pointerleave", pointerleft)
-      .on("touchstart", (event) => event.preventDefault());
+      .style("overflow", "visible");
 
-    svg.selectAll("*").remove(); // clear previous render
+    svg.selectAll("*").remove();
 
-    // === Step 6: Add x-axis ===
     svg
       .append("g")
       .attr("transform", `translate(0,${height - marginBottom})`)
@@ -100,7 +84,6 @@ const LineChart = ({ route, hoveredPointId }: Props) => {
           .tickSizeOuter(0)
       );
 
-    // === Step 7: Add y-axis with grid and label ===
     svg
       .append("g")
       .attr("transform", `translate(${marginLeft},0)`)
@@ -123,7 +106,6 @@ const LineChart = ({ route, hoveredPointId }: Props) => {
           .text("↑ Elevation (m)")
       );
 
-    // === Step 8: Add line path ===
     svg
       .append("path")
       .attr("fill", "none")
@@ -131,75 +113,121 @@ const LineChart = ({ route, hoveredPointId }: Props) => {
       .attr("stroke-width", 1.5)
       .attr("d", line(distanceData));
 
-    // === Step 9: Create tooltip group ===
-    const tooltip = svg.append("g").style("display", "none");
+    const tooltipGroup = svg.append("g").style("display", "none");
 
-    // === Step 10: Tooltip event handlers ===
+    const dot = tooltipGroup
+      .append("circle")
+      .attr("r", 4)
+      .attr("fill", "steelblue");
+
+    const tooltipTextGroup = tooltipGroup.append("g");
+
+    const tooltipPath = tooltipTextGroup
+      .append("path")
+      .attr("fill", "white")
+      .attr("stroke", "black");
+
+    const tooltipText = tooltipTextGroup.append<SVGTextElement>("text");
+
     const bisect = d3.bisector((d: any) => d.distance).center;
 
     function pointermoved(event: any) {
       const pointerX = d3.pointer(event)[0];
       const distance = x.invert(pointerX);
       const i = bisect(distanceData, distance);
-
       const d = distanceData[i];
-      tooltip.style("display", null);
-      tooltip.attr("transform", `translate(${x(d.distance)},${y(d.elevation)})`);
 
-      const path = tooltip
-        .selectAll("path")
-        .data([,])
-        .join("path")
-        .attr("fill", "white")
-        .attr("stroke", "black");
+      tooltipGroup.style("display", null);
 
-      const text = tooltip
-        .selectAll("text")
-        .data([,])
-        .join("text")
-        .call((text) =>
-          text
+      dot.attr("cx", x(d.distance)).attr("cy", y(d.elevation));
+
+      tooltipTextGroup.attr(
+        "transform",
+        `translate(${x(d.distance)},${y(d.elevation) + 10})`
+      );
+
+      tooltipText
+        .selectAll("tspan")
+        .data([`${d.distance.toFixed(2)} km`, `${d.elevation.toFixed(1)} m`])
+        .join("tspan")
+        .attr("x", 0)
+        .attr("y", (_, i) => `${i * 1.1}em`)
+        .attr("font-weight", (_, i) => (i === 0 ? "bold" : null))
+        .text((d) => d);
+
+      const node = tooltipText.node();
+      if (!node) return;
+
+      const { x: tx, y: ty, width: tw, height: th } = node.getBBox();
+
+      tooltipText.attr("transform", `translate(${-tw / 2},${15 - ty})`);
+      tooltipPath.attr(
+        "d",
+        `M${-tw / 2 - 10},5H-5l5,-5l5,5H${tw / 2 + 10}v${th + 20}h-${tw + 20}z`
+      );
+
+      // ✅ Highlight corresponding table row
+      setHoveredPointId(d.id);
+    }
+
+    function pointerleft() {
+      tooltipGroup.style("display", "none");
+      // ✅ Clear table highlight when leaving chart
+      setHoveredPointId(null);
+    }
+
+    svg
+      .on("pointerenter pointermove", pointermoved)
+      .on("pointerleave", pointerleft)
+      .on("touchstart", (event) => event.preventDefault());
+
+      if (hoveredPointId !== null) {
+        const point = distanceData.find((p) => p.id === hoveredPointId);
+        if (point) {
+          // Show blue dot
+          svg
+            .append("circle")
+            .attr("cx", x(point.distance))
+            .attr("cy", y(point.elevation))
+            .attr("r", 4)
+            .attr("fill", "steelblue");
+      
+          // ✅ Show tooltip
+          tooltipGroup.style("display", null);
+      
+          dot.attr("cx", x(point.distance)).attr("cy", y(point.elevation));
+      
+          tooltipTextGroup.attr(
+            "transform",
+            `translate(${x(point.distance)},${y(point.elevation) + 10})`
+          );
+      
+          tooltipText
             .selectAll("tspan")
             .data([
-              `${d.distance.toFixed(2)} km`,
-              `${d.elevation.toFixed(1)} m`,
+              `${point.distance.toFixed(2)} km`,
+              `${point.elevation.toFixed(1)} m`,
             ])
             .join("tspan")
             .attr("x", 0)
             .attr("y", (_, i) => `${i * 1.1}em`)
             .attr("font-weight", (_, i) => (i === 0 ? "bold" : null))
-            .text((d) => d)
-        );
-
-      size(text, path);
-    }
-
-    function pointerleft() {
-      tooltip.style("display", "none");
-    }
-
-    function size(text: any, path: any) {
-      const { x, y, width: w, height: h } = text.node().getBBox();
-      text.attr("transform", `translate(${-w / 2},${15 - y})`);
-      path.attr(
-        "d",
-        `M${-w / 2 - 10},5H-5l5,-5l5,5H${w / 2 + 10}v${h + 20}h-${w + 20}z`
-      );
-    }
-
-    // === Step 11: Optional highlight from table hover ===
-    if (hoveredPointId !== null) {
-      const point = distanceData.find((p) => p.id === hoveredPointId);
-      if (point) {
-        svg
-          .append("circle")
-          .attr("cx", x(point.distance))
-          .attr("cy", y(point.elevation))
-          .attr("r", 5)
-          .attr("fill", "red");
+            .text((d) => d);
+      
+          const node = tooltipText.node();
+          if (!node) return;
+      
+          const { x: tx, y: ty, width: tw, height: th } = node.getBBox();
+      
+          tooltipText.attr("transform", `translate(${-tw / 2},${15 - ty})`);
+          tooltipPath.attr(
+            "d",
+            `M${-tw / 2 - 10},5H-5l5,-5l5,5H${tw / 2 + 10}v${th + 20}h-${tw + 20}z`
+          );
+        }
       }
-    }
-  }, [route, hoveredPointId]);
+      
+  }, [route, hoveredPointId, setHoveredPointId]);
 
   return (
     <div style={{ position: "relative" }}>
